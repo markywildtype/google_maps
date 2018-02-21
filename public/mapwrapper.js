@@ -8,8 +8,22 @@ const MapWrapper = function(coords, container, zoom){
 MapWrapper.prototype.addMarker = function (coords) {
   const marker = new google.maps.Marker({
     position: coords,
-    map: this.googleMap
+    map: this.googleMap,
+    title: "Helloooooooooo!",
+    label: "Marky was here",
+    draggable: true
   });
+  return marker;
+  // const infoWindow = new google.maps.InfoWindow({
+  //   content: "Would probably be a good idea to make this dynamic in some way, eh?"
+  // });
+  //
+  // marker.addListener('click', function(){
+  //   infoWindow.open(this.googleMap, marker);
+  // });
+
+
+  // marker.setAnimation(google.maps.Animation.BOUNCE);
 };
 
 MapWrapper.prototype.addClickEvent = function () {
@@ -17,6 +31,6 @@ MapWrapper.prototype.addClickEvent = function () {
     const x = event.latLng.lat();
     const y = event.latLng.lng();
     const coords = {lat: x, lng: y}
-    this.addMarker(coords); 
+    this.addMarker(coords);
   }.bind(this));
 };
