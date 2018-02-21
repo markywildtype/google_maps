@@ -1,6 +1,6 @@
 const handleButtonClick = function(){
   console.log(this);
-  this.mainMap.setCenter({lat: 40.731412, lng: -73.996985})
+  this.googleMap.setCenter({lat: 40.731412, lng: -73.996985})
 };
 
 
@@ -31,7 +31,7 @@ const initialize = function(){
   mainMap.addClickEvent();
 
   const button = document.querySelector('button');
-  button.addEventListener('click', handleButtonClick.bind(this));
+  button.addEventListener('click', handleButtonClick.bind(mainMap));
 }
 
 
